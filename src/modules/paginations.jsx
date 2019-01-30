@@ -1,18 +1,26 @@
 import React from "react";
-const Pagination = () => {
+import _ from "lodash";
+const Pagination = ({ itemCount, pageSize, onPageChange, currentPage }) => {
+  const pagesCount = Math.ceil(itemCount / pageSize);
+
+  const pages = _.range(1, pagesCount + 1);
+  console.log(pages);
   return (
     <div className="row">
       <div className="col-md-12 text-center">
         <div className="site-pagination">
-          <a href="#" className="active">
+          {/* <a  className="active">
             1
-          </a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#">5</a>
-          <span>...</span>
-          <a href="#">10</a>
+          </a> */}
+          {pages.map(page => (
+            <li
+              className={page === currentPage ? "active" : ""}
+              onClick={() => onPageChange(page)}
+              key={page}
+            >
+              {page}
+            </li>
+          ))}
         </div>
       </div>
     </div>

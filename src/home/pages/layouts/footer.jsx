@@ -1,12 +1,12 @@
 import React from "react";
 const Footer = () => {
   return (
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="mb-5">
-              <h3 class="footer-heading mb-4">About Homeland</h3>
+    <footer className="site-footer">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-4">
+            <div className="mb-5">
+              <h3 className="footer-heading mb-4">About Homeland</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe
                 pariatur reprehenderit vero atque, consequatur id ratione, et
@@ -15,13 +15,13 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <div class="row mb-5">
-              <div class="col-md-12">
-                <h3 class="footer-heading mb-4">Navigations</h3>
+          <div className="col-lg-4 mb-5 mb-lg-0">
+            <div className="row mb-5">
+              <div className="col-md-12">
+                <h3 className="footer-heading mb-4">Navigations</h3>
               </div>
-              <div class="col-md-6 col-lg-6">
-                <ul class="list-unstyled">
+              <div className="col-md-6 col-lg-6">
+                <ul className="list-unstyled">
                   <li>
                     <a href="#">Home</a>
                   </li>
@@ -36,8 +36,8 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div class="col-md-6 col-lg-6">
-                <ul class="list-unstyled">
+              <div className="col-md-6 col-lg-6">
+                <ul className="list-unstyled">
                   <li>
                     <a href="#">About Us</a>
                   </li>
@@ -55,21 +55,21 @@ const Footer = () => {
             </div>
           </div>
 
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <h3 class="footer-heading mb-4">Follow Us</h3>
+          <div className="col-lg-4 mb-5 mb-lg-0">
+            <h3 className="footer-heading mb-4">Follow Us</h3>
 
             <div>
-              <a href="#" class="pl-0 pr-3">
-                <span class="icon-facebook" />
+              <a href="#" className="pl-0 pr-3">
+                <span className="icon-facebook" />
               </a>
-              <a href="#" class="pl-3 pr-3">
-                <span class="icon-twitter" />
+              <a href="#" className="pl-3 pr-3">
+                <span className="icon-twitter" />
               </a>
-              <a href="#" class="pl-3 pr-3">
-                <span class="icon-instagram" />
+              <a href="#" className="pl-3 pr-3">
+                <span className="icon-instagram" />
               </a>
-              <a href="#" class="pl-3 pr-3">
-                <span class="icon-linkedin" />
+              <a href="#" className="pl-3 pr-3">
+                <span className="icon-linkedin" />
               </a>
             </div>
           </div>

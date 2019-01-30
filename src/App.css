@@ -1,0 +1,28 @@
+.property_img-container {
+  height: 239px !important;
+}
+.property-location {
+  height: 45px;
+}
+
+.site-pagination li {
+  display: inline-block;
+  width: 50px;
+  border-radius: 50%;
+  height: 50px;
+  line-height: 50px;
+  background: #fff;
+  color: #333333;
+  border: 1px solid #e6e6e6;
+  cursor: pointer;
+}
+
+.site-pagination li.active {
+  border: 1px solid transparent;
+  background: #7cbd1e;
+  color: #fff;
+}
+
+.pointer {
+  cursor: pointer;
+}
