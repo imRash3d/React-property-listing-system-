@@ -1,11 +1,24 @@
 import React, { Component } from "react";
-import { getListing } from "../../services/homeServices";
+import { getProperty } from "../../services/propertyService";
+import { getListing } from "./../../services/homeServices";
+
 class PropertyDetails extends Component {
   state = {
-    listings: getListing()
+    property: {}
   };
+  async componentDidMount() {
+    const property_id = this.props.match.params.id;
+    if (property_id) {
+      const property = await getProperty(property_id);
+      this.setState({
+        property
+      });
+    }
+  }
+
   render() {
-    const property = this.state.listings[0];
+    const { property } = this.state;
+    console.log(property);
     return (
       <React.Fragment>
         <div className="site-section site-section-sm">
@@ -59,9 +72,11 @@ class PropertyDetails extends Component {
                       <span className="d-inline-block text-black mb-0 caption-text">
                         Home Type
                       </span>
-                      <strong className="d-block">
-                        {property.listing_type.name}
-                      </strong>
+                      {property.listing_type && (
+                        <strong className="d-block">
+                          {property.listing_type.name}
+                        </strong>
+                      )}
                     </div>
                     <div className="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
                       <span className="d-inline-block text-black mb-0 caption-text">
@@ -81,13 +96,13 @@ class PropertyDetails extends Component {
                     </div>
                   </div>
                   <h2 className="h4 text-black">More Info</h2>
-                  <p>{property.details}</p>
+                  <p>{property.description}</p>
 
                   <div className="row no-gutters mt-5">
                     <div className="col-12">
                       <h2 className="h4 text-black mb-3">Gallery</h2>
                     </div>
-                    <div className="col-sm-6 col-md-4 col-lg-3">
+                    {/* <div className="col-sm-6 col-md-4 col-lg-3">
                       <a href={property.image} className="image-popup gal-item">
                         <img
                           src={property.image}
@@ -95,8 +110,8 @@ class PropertyDetails extends Component {
                           className="img-fluid"
                         />
                       </a>
-                    </div>
-                    <div className="col-sm-6 col-md-4 col-lg-3">
+                    </div> */}
+                    {/* <div className="col-sm-6 col-md-4 col-lg-3">
                       <a href={property.image} className="image-popup gal-item">
                         <img
                           src={property.image}
@@ -104,19 +119,16 @@ class PropertyDetails extends Component {
                           className="img-fluid"
                         />
                       </a>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
               <div className="col-lg-4">
                 <div className="bg-white widget border rounded">
-                  <h3 className="h4 text-black widget-title mb-3">Paragraph</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Velit qui explicabo, libero nam, saepe eligendi. Molestias
-                    maiores illum error rerum. Exercitationem ullam saepe,
-                    minus, reiciendis ducimus quis. Illo, quisquam, veritatis.
-                  </p>
+                  <h3 className="h4 text-black widget-title mb-3">
+                    Contact Info
+                  </h3>
+                  <p>{property.contact_info}</p>
                 </div>
               </div>
             </div>

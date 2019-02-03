@@ -9,6 +9,7 @@ import { Route, Switch } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Booking from "./pages/booking";
 import BookingDetails from "./pages/bookingDetails";
+import Services from "./pages/services";
 class Admin extends Component {
   state = {};
   render() {
@@ -33,6 +34,7 @@ class Admin extends Component {
                   />
                   <Route path="/admin/edit/:id" component={PropertyForm} />
                   <Route path="/admin/booking/:id" component={BookingDetails} />
+                  <Route path="/admin/services" component={Services} />
                   <Route path="/admin/booking" component={Booking} />
                   <Route path="/admin/listings" component={AllListing} />
                   <Route path="/admin/add" component={PropertyForm} />

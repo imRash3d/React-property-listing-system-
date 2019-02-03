@@ -6,11 +6,17 @@ import "./assets/css/aos.css";
 import "./assets/css/bootstrap.min.css";
 import "./assets/css/style.css";
 import "./assets/fonts/flaticon/font/flaticon.css";
-import HomePage from "./home/homepage";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import RouterModule from "./router";
 class App extends Component {
   render() {
-    return <RouterModule />;
+    return (
+      <React.Fragment>
+        <ToastContainer />
+        <RouterModule />
+      </React.Fragment>
+    );
   }
 }
 

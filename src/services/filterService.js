@@ -1,6 +1,5 @@
-import { getListing } from "./homeServices";
-export function priceSort(sort) {
-  const listing = getListing();
+export function priceSort(sort, items) {
+  const listing = items;
   let sorted = [];
   if (sort === "asc") {
     sorted = listing.sort((a, b) => a.price - b.price);
@@ -10,8 +9,8 @@ export function priceSort(sort) {
   return sorted;
 }
 
-export function getOfferTypeFiltered(type) {
-  const listings = getListing();
+export function getOfferTypeFiltered(type, items) {
+  const listings = items;
   let filtered = [];
   if (type === 3) {
     filtered = listings;
@@ -21,13 +20,13 @@ export function getOfferTypeFiltered(type) {
   return filtered;
 }
 
-export function getlistTypeFiltered(type) {
-  const listings = getListing();
+export function getlistTypeFiltered(type, items) {
+  const listings = items;
   let filtered = [];
   if (type === String(0)) {
     filtered = listings;
   } else {
-    filtered = listings.filter(item => item.listing_type.id === Number(type));
+    filtered = listings.filter(item => item.listing_type.id === String(type));
   }
   return filtered;
 }
