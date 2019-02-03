@@ -6,3 +6,7 @@ export function paginate(items, pageNumber, pageSize) {
     .take(pageSize)
     .value();
 }
+
+// export function filtering(items,type){
+//   items.filter(item=>item.)
+// }

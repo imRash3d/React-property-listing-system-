@@ -10,7 +10,7 @@ import HomePage from "./home/homepage";
 import RouterModule from "./router";
 class App extends Component {
   render() {
-    return <HomePage />;
+    return <RouterModule />;
   }
 }
 

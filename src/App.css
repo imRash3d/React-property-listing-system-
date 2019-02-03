@@ -26,3 +26,8 @@
 .pointer {
   cursor: pointer;
 }
+
+li.view-list {
+  display: inline;
+  cursor: pointer;
+}

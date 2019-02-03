@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const Property = props => {
   const { property } = props;
-  // console.log(property);
+  console.log(property);
   return (
     <div className="col-md-6 col-lg-4 mb-4">
       <div className="property-entry h-100">
@@ -11,14 +11,14 @@ const Property = props => {
           className="property-thumbnail"
         >
           <div className="offer-type-wrap">
-            {property.offer_type === "rent" && (
+            {property.offer_type.name === "Rent" && (
               <span className="offer-type bg-danger">
-                {property.offer_type}
+                {property.offer_type.name}
               </span>
             )}
-            {property.offer_type === "sale" && (
+            {property.offer_type.name === "Sale" && (
               <span className="offer-type bg-success">
-                {property.offer_type}
+                {property.offer_type.name}
               </span>
             )}
           </div>
