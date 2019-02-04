@@ -83,14 +83,14 @@ class Filter extends Component {
           <div className="row">
             <div className="col-md-12">
               <div className="view-options bg-white py-3 px-3 d-md-flex align-items-center">
-                <div className="mr-auto">
+                {/* <div className="mr-auto">
                   <a href="index.html" className="icon-view view-module active">
                     <span className="icon-view_module" />
                   </a>
                   <a href="view-list.html" className="icon-view view-list">
                     <span className="icon-view_list" />
                   </a>
-                </div>
+                </div> */}
                 <div className="ml-auto d-flex align-items-center">
                   <div>
                     <li

@@ -3,8 +3,9 @@ import Navbar from "./pages/layouts/navbar";
 import Footer from "./pages/layouts/footer";
 import Slider from "./pages/homePage/slider";
 import Home from "./pages/home";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import PropertyDetails from "./pages/details";
+import NotFound from "./../notFound/notFound";
 
 class HomePage extends Component {
   state = {};
@@ -15,7 +16,8 @@ class HomePage extends Component {
         <Slider />
         <Switch>
           <Route path="/property/details/:id" component={PropertyDetails} />
-          <Route path="/" component={Home} />
+          <Route path="/" exact component={Home} />
+          <Redirect to="/not-found" />
         </Switch>
         <Footer />
       </div>

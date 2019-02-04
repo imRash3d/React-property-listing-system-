@@ -1,8 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { toast } from "react-toastify";
 import Form from "./../../modules/form";
-import { getPropery } from "../../services/homeServices";
-import { getListing } from "./../../services/homeServices";
 import {
   getListingTypes,
   getCities,

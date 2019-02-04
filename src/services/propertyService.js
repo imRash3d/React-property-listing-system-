@@ -44,7 +44,7 @@ function formatListingData(data) {
 function formatData(data) {
   let list = [];
   for (let c in data) {
-    console.log(data[c]);
+    //  console.log(data[c]);
     const obj = {
       id: c,
       name: data[c].name
@@ -60,4 +60,14 @@ export async function saveProperty(data) {
 
 export async function EditProperty(id, data) {
   return await axios.put(config.api_url + `listings/${id}.json`, data);
+}
+
+export async function saveBooking(data) {
+  return await axios.post(config.api_url + "booking.json", data);
+}
+
+export async function getBookings() {
+  const res = await axios.get(config.api_url + "booking.json");
+  const { data } = res;
+  return formatListingData(data);
 }

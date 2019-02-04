@@ -1,17 +1,17 @@
 import React, { Component } from "react";
+import { getBookings } from "../../services/propertyService";
+import { FORMAT_DATE } from "./../../modules/functions";
+import { Link } from "react-router-dom";
 class Booking extends Component {
   state = {
-    bookings: [
-      {
-        id: 22323,
-        property_id: "123231231",
-        user_id: 21324223,
-        name: "rashed",
-        email: "rashed@gmail.com",
-        date: "2019-5-1"
-      }
-    ]
+    bookings: []
   };
+  async componentDidMount() {
+    const bookings = await getBookings();
+    this.setState({
+      bookings
+    });
+  }
   render() {
     const { bookings } = this.state;
     return (
@@ -36,17 +36,16 @@ class Booking extends Component {
                   <tr key={item.id}>
                     <td>{item.property_id}</td>
                     <td>{item.user_id}</td>
-                    <td>{item.name}</td>
+                    <td>
+                      {item.first_name} {item.last_name}
+                    </td>
                     <td>{item.email}</td>
-                    <td>{item.date}</td>
+                    <td>{FORMAT_DATE(item.created)}</td>
 
                     <td>
-                      {/* <Link to={`/admin/property/details/${item.id}`}>
+                      <Link to={`/admin/booking/${item.id}`}>
                         <i className="fas mr-3 pointer fa-eye" />
                       </Link>
-                      <Link to={`/admin/edit/${item.id}`}>
-                        <i className="fas mr-3  pointer fa-pencil-alt" />
-                      </Link> */}
 
                       <i className="fas mr-3  pointer fa-trash-alt" />
                     </td>

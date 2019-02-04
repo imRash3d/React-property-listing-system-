@@ -31,3 +31,9 @@ li.view-list {
   display: inline;
   cursor: pointer;
 }
+
+.offer_type_bdge {
+  padding: 0px 14px;
+  border-radius: 51px;
+  color: #fff;
+}

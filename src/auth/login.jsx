@@ -1,45 +1,51 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 class Login extends Component {
   state = {};
   render() {
     return (
       <React.Fragment>
-        <h5 class="card-title text-center">Sign In</h5>
-        <form class="form-signin">
-          <div class="form-label-group">
+        <h5 className="card-title text-center">Sign In</h5>
+        <form className="form-signin">
+          <div className="form-label-group">
             <input
               type="email"
               id="inputEmail"
-              class="form-control"
+              className="form-control"
               placeholder="Email address"
               required
-              autofocus
+              autoFocus
             />
-            <label for="inputEmail">Email address</label>
+            <label htmlFor="inputEmail">Email address</label>
           </div>
-          <div class="form-label-group">
+          <div className="form-label-group">
             <input
               type="password"
               id="inputPassword"
-              class="form-control"
+              className="form-control"
               placeholder="Password"
               required
             />
-            <label for="inputPassword">Password</label>
+            <label htmlFor="inputPassword">Password</label>
           </div>
 
-          <div class="custom-control custom-checkbox mb-3">
+          {/* <div className="custom-control custom-checkbox mb-3">
             <input
               type="checkbox"
-              class="custom-control-input"
+              className="custom-control-input"
               id="customCheck1"
             />
-            <label class="custom-control-label" for="customCheck1">
+            <label className="custom-control-label" htmlFor="customCheck1">
               Remember password
             </label>
+          </div> */}
+          <div className="custom-control custom-checkbox mb-3">
+            <p>
+              Dont Have an Account ? <Link to="/auth/sign-up">Sign Up</Link>
+            </p>
           </div>
           <button
-            class="btn btn-lg btn-primary btn-block text-uppercase"
+            className="btn btn-lg btn-primary btn-block text-uppercase"
             type="submit"
           >
             Sign in

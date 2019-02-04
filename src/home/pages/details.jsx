@@ -1,30 +1,26 @@
 import React, { Component } from "react";
+import { getProperty } from "../../services/propertyService";
+import ContactAgent from "../components/contact-agent";
 class PropertyDetails extends Component {
   state = {
-    property: {
-      construction_year: 2008,
-      id: "2332237hdfdfs",
-      name: "625 S. Berendo St",
-      price: "2,265,500",
-      address: "625 S. Berendo St Unit 607 Los Angeles, CA 90005",
-      beds: 2,
-      baths: 2,
-      area: 7000,
-      offer_type: "rent",
-      listing_type: "condo",
-      cityL: "london",
-      image:
-        "http://aquawealth.com.au/wp-content/uploads/2012/07/1333201135retirement.jpg",
-      details: ` Nisi voluptatum error ipsum repudiandae, autem deleniti,
-        velit dolorem enim quaerat rerum incidunt sed, qui ducimus!
-        Tempora architecto non, eligendi vitae dolorem laudantium
-        dolore blanditiis assumenda in eos hic unde.`,
-      per_sqr_price: 500
-    }
+    property: {},
+    property_id: ""
   };
+
+  async componentDidMount() {
+    const property_id = this.props.match.params.id;
+    const property = await getProperty(property_id);
+    if (!property) {
+      await this.props.history.replace("/not-found");
+      return;
+    }
+    this.setState({
+      property,
+      property_id
+    });
+  }
   render() {
-    const { property } = this.state;
-    console.log(property);
+    const { property, property_id } = this.state;
     return (
       <React.Fragment>
         <div className="site-section site-section-sm">
@@ -79,15 +75,30 @@ class PropertyDetails extends Component {
                         Home Type
                       </span>
                       <strong className="d-block">
-                        {property.listing_type}
+                        {property.listing_type
+                          ? property.listing_type.name
+                          : ""}
                       </strong>
                     </div>
                     <div className="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
                       <span className="d-inline-block text-black mb-0 caption-text">
-                        Year Built
+                        Offer Type
                       </span>
                       <strong className="d-block">
-                        {property.construction_year}
+                        {property.offer_type && (
+                          <div className="offer-type-wrap">
+                            {property.offer_type.name === "Rent" && (
+                              <span className="offer-type bg-danger offer_type_bdge">
+                                {property.offer_type.name}
+                              </span>
+                            )}
+                            {property.offer_type.name === "Sale" && (
+                              <span className="offer-type bg-success offer_type_bdge">
+                                {property.offer_type.name}
+                              </span>
+                            )}
+                          </div>
+                        )}
                       </strong>
                     </div>
                     <div className="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
@@ -106,7 +117,7 @@ class PropertyDetails extends Component {
                     <div className="col-12">
                       <h2 className="h4 text-black mb-3">Gallery</h2>
                     </div>
-                    <div className="col-sm-6 col-md-4 col-lg-3">
+                    {/* <div className="col-sm-6 col-md-4 col-lg-3">
                       <a href={property.image} className="image-popup gal-item">
                         <img
                           src={property.image}
@@ -114,8 +125,8 @@ class PropertyDetails extends Component {
                           className="img-fluid"
                         />
                       </a>
-                    </div>
-                    <div className="col-sm-6 col-md-4 col-lg-3">
+                    </div> */}
+                    {/* <div className="col-sm-6 col-md-4 col-lg-3">
                       <a href={property.image} className="image-popup gal-item">
                         <img
                           src={property.image}
@@ -123,7 +134,7 @@ class PropertyDetails extends Component {
                           className="img-fluid"
                         />
                       </a>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -132,16 +143,14 @@ class PropertyDetails extends Component {
                   <h3 className="h4 text-black widget-title mb-3">
                     Contact Agent
                   </h3>
+                  <ContactAgent property_id={property_id} />
                 </div>
 
                 <div className="bg-white widget border rounded">
-                  <h3 className="h4 text-black widget-title mb-3">Paragraph</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Velit qui explicabo, libero nam, saepe eligendi. Molestias
-                    maiores illum error rerum. Exercitationem ullam saepe,
-                    minus, reiciendis ducimus quis. Illo, quisquam, veritatis.
-                  </p>
+                  <h3 className="h4 text-black widget-title mb-3">
+                    Contact Info{" "}
+                  </h3>
+                  <p>{property.contact_info}</p>
                 </div>
               </div>
             </div>

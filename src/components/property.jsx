@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const Property = props => {
   const { property } = props;
-  console.log(property);
+  // console.log(property);
   return (
     <div className="col-md-6 col-lg-4 mb-4">
       <div className="property-entry h-100">
