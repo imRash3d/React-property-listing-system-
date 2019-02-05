@@ -8,8 +8,8 @@ import PropertyForm from "./pages/propertyForm";
 import { Route, Switch } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Booking from "./pages/booking";
-import BookingDetails from "./pages/bookingDetails";
 import Services from "./pages/services";
+import BookingDetails from "./pages/bookingDetails/bookingDetails";
 class Admin extends Component {
   state = {};
   render() {

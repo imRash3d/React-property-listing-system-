@@ -71,3 +71,8 @@ export async function getBookings() {
   const { data } = res;
   return formatListingData(data);
 }
+export async function getBooking(id) {
+  const res = await axios.get(config.api_url + `booking/${id}.json`);
+  const { data } = res;
+  return data;
+}

@@ -40,7 +40,6 @@ class AllListing extends Component {
 
   handeLisFiltered = e => {
     const type = e.target.value;
-    console.log(type);
     const filtered = getlistTypeFiltered(type, this.state.original);
     this.setState({ listings: filtered });
   };
@@ -53,12 +52,16 @@ class AllListing extends Component {
 
     return (
       <React.Fragment>
-        <div className="filtering">
-          <Filter
-            onSortChange={this.priceSortChange}
-            onSelectType={this.handleTypeChnage}
-            onlistFiltered={this.handeLisFiltered}
-          />
+        <div className="container">
+          <div className="row">
+            <div className="filtering col-md-12">
+              <Filter
+                onSortChange={this.priceSortChange}
+                onSelectType={this.handleTypeChnage}
+                onlistFiltered={this.handeLisFiltered}
+              />
+            </div>
+          </div>
         </div>
         <div className="container">
           <div className="row" />
