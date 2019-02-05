@@ -35,7 +35,7 @@ class Booking extends Component {
                 {bookings.map(item => (
                   <tr key={item.id}>
                     <td>{item.property_id}</td>
-                    <td>{item.user_id}</td>
+                    <td>{item.uid}</td>
                     <td>
                       {item.first_name} {item.last_name}
                     </td>

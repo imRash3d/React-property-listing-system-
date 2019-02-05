@@ -8,19 +8,28 @@ class ContactAgent extends Form {
       first_name: "",
       last_name: "",
       email: "",
-      phone: ""
+      phone: "",
+      message: ""
     }
   };
 
   async doSubmit() {
-    console.log("do");
-    const { data } = this.state;
+    let data;
+    if (localStorage.getItem("user")) {
+      data = JSON.parse(localStorage.getItem("user"));
+      delete data['rol_id'];
+      data["message"] = this.state.data.message;
+     
+    } else {
+      data = this.state.data;
+      data["uid"] = "Guest";
+    }
+
     data["property_id"] = this.props.property_id;
     data["created"] = new Date().toString();
-    data["user_id"] = "test001";
     saveBooking(data).then(res => {
       if (res.data) {
-        toast.success("Booking Saved Successfully");
+        toast.success("Message send  to contact agent  Successfully");
         const reset = {
           first_name: "",
           last_name: "",
@@ -41,11 +50,23 @@ class ContactAgent extends Form {
     return (
       <div className="Contact-form">
         <form onSubmit={this.handleSubmit} className="form">
-          {this.renderInput("first_name", "First Name")}
-          {this.renderInput("last_name", "Last Name")}
-          {this.renderInput("email", "Email")}
-          {this.renderInput("phone", "Phone")}
-          {this.renderButton("Submit")}
+          {!localStorage.getItem("user") && (
+            <div>
+              {this.renderInput("first_name", "First Name")}
+              {this.renderInput("last_name", "Last Name")}
+              {this.renderInput("email", "Email")}
+              {this.renderInput("phone", "Phone")}
+              {this.renderTextArea("message", "Message")}
+              {this.renderButton("Submit")}
+            </div>
+          )}
+
+          {localStorage.getItem("user") && (
+            <div>
+              {this.renderTextArea("message", "Message")}
+              {this.renderButton("Contact Agent")}
+            </div>
+          )}
         </form>
       </div>
     );

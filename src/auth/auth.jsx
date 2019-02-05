@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "../auth/auth.css";
 import Login from "./login";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch ,Redirect } from "react-router-dom";
 import SignUp from "./signUp";
+import NotFound from "../notFound/notFound";
 class Auth extends Component {
   state = {};
   render() {
@@ -13,8 +14,10 @@ class Auth extends Component {
             <div className="card card-signin my-5">
               <div className="card-body">
                 <Switch>
-                  <Route path="/auth/signin" component={Login} />
+                  <Route path="/auth/sign-in" component={Login} />
                   <Route path="/auth/sign-up" component={SignUp} />
+                  <Route path="/not-found" component={NotFound} />
+                  <Redirect to="/not-found" />
                 </Switch>
               </div>
             </div>

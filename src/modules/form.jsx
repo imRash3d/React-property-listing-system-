@@ -33,7 +33,7 @@ class Form extends Component {
   renderButton(label) {
     return (
       <div className="form-group">
-        <button className="btn col-md-4 btn-success"> {label}</button>
+        <button className="btn  btn-success"> {label}</button>
       </div>
     );
   }

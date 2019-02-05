@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 const Navbar = () => {
+  const user = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : null;
   return (
     <div className="site-navbar mt-4">
       <div className="container py-1">
@@ -27,7 +30,11 @@ const Navbar = () => {
                   <Link to="/admin">Admin</Link>
                 </li>
                 <li>
-                  <Link to="/auth/signin">Login</Link>
+                  {user ? (
+                    <p className="user-label">Welcome {user.first_name} </p>
+                  ) : (
+                    <Link to="/auth/sign-in">Login</Link>
+                  )}
                 </li>
               </ul>
             </nav>
