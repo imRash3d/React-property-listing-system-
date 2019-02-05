@@ -40,3 +40,11 @@ li.view-list {
 .user-label {
   color: #fff;
 }
+
+.logout {
+  background: #7cbd1e;
+  padding: 4px 20px;
+  margin-left: 30px;
+  border-radius: 41px;
+  cursor: pointer;
+}

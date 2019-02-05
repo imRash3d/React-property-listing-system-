@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Navbar from "./pages/layouts/navbar";
-import Footer from "./pages/layouts/footer";
+import Navbar from "./layouts/navbar";
+import Footer from "./layouts/footer";
 import Slider from "./pages/homePage/slider";
 import Home from "./pages/home";
 import { Route, Switch, Redirect } from "react-router-dom";
@@ -9,10 +9,11 @@ import NotFound from "./../notFound/notFound";
 
 class HomePage extends Component {
   state = {};
+
   render() {
     return (
       <div className="site-wrap">
-        <Navbar />
+        <Navbar  />
         <Slider />
         <Switch>
           <Route path="/property/details/:id" component={PropertyDetails} />
