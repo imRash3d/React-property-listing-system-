@@ -26,12 +26,12 @@ const Footer = () => {
                   <li>
                     <Link to="">Home</Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to="">About Us</Link>
                   </li>
                   <li>
                     <Link to="">Contact Us</Link>
-                  </li>
+                  </li> */}
                  
                 </ul>
               </div>

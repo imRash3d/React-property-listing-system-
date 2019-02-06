@@ -5,6 +5,7 @@ import Slider from "./pages/homePage/slider";
 import Home from "./pages/home";
 import { Route, Switch, Redirect } from "react-router-dom";
 import PropertyDetails from "./pages/details";
+import User from "./pages/userDeatils/userDetails";
 
 class HomePage extends Component {
   state = {};
@@ -16,6 +17,7 @@ class HomePage extends Component {
         <Slider />
         <Switch>
           <Route path="/property/details/:id" component={PropertyDetails} />
+          <Route path="/user/:id" component={User} />
           <Route path="/" exact component={Home} />
           <Redirect to="/not-found" />
         </Switch>
