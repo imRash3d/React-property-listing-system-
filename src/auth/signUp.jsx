@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import Form from "../modules/form";
 import { signUp } from "../services/authService";
 import { toast } from "react-toastify";
+import {Link} from 'react-router-dom'
 class SignUp extends Form {
   state = {
     account: {
@@ -50,7 +51,7 @@ class SignUp extends Form {
               name="first_name"
               value={account.first_name}
               onChange={this.hnadleChange}
-              required
+              
             />
             <label htmlFor="firstName">First Name</label>
           </div>
@@ -60,7 +61,7 @@ class SignUp extends Form {
               id="lastName"
               className="form-control"
               placeholder="Last  Name"
-              required
+              
               autoFocus
               name="last_name"
               value={account.last_name}
@@ -75,7 +76,7 @@ class SignUp extends Form {
               id="phone"
               className="form-control"
               placeholder="Phone Number"
-              required
+              
               autoFocus
               name="phone"
               value={account.phone}
@@ -90,7 +91,7 @@ class SignUp extends Form {
               id="inputEmail"
               className="form-control"
               placeholder="Email address"
-              required
+              
               autoFocus
               name="email"
               value={account.email}
@@ -123,6 +124,11 @@ class SignUp extends Form {
               Remember password
             </label>
           </div> */}
+           <div className="custom-control custom-checkbox mb-3">
+            <p>
+              Already Have an Account ? <Link to="/auth/sign-in">Sign In</Link>
+            </p>
+          </div>
           <button
             className="btn btn-lg btn-primary btn-block text-uppercase"
             type="submit"

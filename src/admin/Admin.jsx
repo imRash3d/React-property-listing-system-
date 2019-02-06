@@ -16,6 +16,7 @@ class Admin extends Component {
     return (
       <div className="home">
         <div className="container-fluid ">
+        <TopHeader history={this.props.history} />
           <div className="row ">
             <Sidebar />
             <div
@@ -24,9 +25,6 @@ class Admin extends Component {
             >
               <div className="row" />
               <div className="user-dashboard">
-                <div className="row">
-                  <TopHeader />
-                </div>
                 <Switch>
                   <Route
                     path="/admin/property/details/:id"

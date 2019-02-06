@@ -5,7 +5,6 @@ import Slider from "./pages/homePage/slider";
 import Home from "./pages/home";
 import { Route, Switch, Redirect } from "react-router-dom";
 import PropertyDetails from "./pages/details";
-import NotFound from "./../notFound/notFound";
 
 class HomePage extends Component {
   state = {};

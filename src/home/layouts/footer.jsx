@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="site-footer">
@@ -23,35 +24,18 @@ const Footer = () => {
               <div className="col-md-6 col-lg-6">
                 <ul className="list-unstyled">
                   <li>
-                    <a href="#">Home</a>
+                    <Link to="">Home</Link>
                   </li>
                   <li>
-                    <a href="#">Buy</a>
+                    <Link to="">About Us</Link>
                   </li>
                   <li>
-                    <a href="#">Rent</a>
+                    <Link to="">Contact Us</Link>
                   </li>
-                  <li>
-                    <a href="#">Properties</a>
-                  </li>
+                 
                 </ul>
               </div>
-              <div className="col-md-6 col-lg-6">
-                <ul className="list-unstyled">
-                  <li>
-                    <a href="#">About Us</a>
-                  </li>
-                  <li>
-                    <a href="#">Privacy Policy</a>
-                  </li>
-                  <li>
-                    <a href="#">Contact Us</a>
-                  </li>
-                  <li>
-                    <a href="#">Terms</a>
-                  </li>
-                </ul>
-              </div>
+             
             </div>
           </div>
 
@@ -59,20 +43,23 @@ const Footer = () => {
             <h3 className="footer-heading mb-4">Follow Us</h3>
 
             <div>
-              <a href="#" className="pl-0 pr-3">
+              <Link to="" className="pl-0 pr-3">
                 <span className="icon-facebook" />
-              </a>
-              <a href="#" className="pl-3 pr-3">
+              </Link>
+              <Link  to=""  className="pl-3 pr-3">
                 <span className="icon-twitter" />
-              </a>
-              <a href="#" className="pl-3 pr-3">
+              </Link>
+              <Link  to=""  className="pl-3 pr-3">
                 <span className="icon-instagram" />
-              </a>
-              <a href="#" className="pl-3 pr-3">
+              </Link>
+              <Link  to=""  className="pl-3 pr-3">
                 <span className="icon-linkedin" />
-              </a>
+              </Link>
             </div>
           </div>
+        </div>
+        <div className="row">
+          <p className="col-md-12 text-center">  <a href="http://rash3d.me/">Developed By @Rashedul Islam</a> </p>
         </div>
       </div>
     </footer>

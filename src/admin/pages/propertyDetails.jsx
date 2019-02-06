@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { getProperty } from "../../services/propertyService";
-import { getListing } from "./../../services/homeServices";
-
 class PropertyDetails extends Component {
   state = {
     property: {}

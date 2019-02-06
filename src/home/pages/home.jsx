@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { getListing } from "../../services/homeServices";
 import Filter from "../../modules/listFiltering";
 import Pagination from "../../modules/paginations";
 import Property from "../../components/property";

@@ -604,3 +604,53 @@ header {
   margin-bottom: 28px;
   box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
 }
+
+.top-header {
+  background: #fff;
+  width: 100%;
+  margin-bottom: 19px;
+  box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+  padding-left: 260px;
+  padding-top: 15px;
+}
+
+.admin-top-profile img {
+  width: 50px;
+    border-radius: 51%;
+    cursor: pointer;
+}
+.menubar {
+  display: none;
+  width: 195px;
+  position: absolute;
+  right: 17px;
+  background: #fff;
+  top: 73px;
+  box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+  z-index: 999;
+  height: 131px;
+}
+.menubar ul li a {
+
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+
+}
+.menubar ul {
+  position: relative;
+}
+.menubar ul li {
+  margin: 11px;
+  text-align: left;
+  margin-left: 19px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}

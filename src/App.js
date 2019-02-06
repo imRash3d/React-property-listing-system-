@@ -7,7 +7,7 @@ import "./assets/css/bootstrap.min.css";
 import "./assets/css/style.css";
 import "./assets/fonts/flaticon/font/flaticon.css";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import RouterModule from "./router";
 class App extends Component {
   render() {

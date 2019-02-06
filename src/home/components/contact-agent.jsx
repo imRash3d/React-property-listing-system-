@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { toast } from "react-toastify";
 import Form from "./../../modules/form";
 import { saveBooking } from "../../services/propertyService";
