@@ -19,9 +19,9 @@ class Navbar extends Component {
     });
   }
   render() {
-    const {user} = this.state
+    const { user } = this.state;
     return (
-      <div className="site-navbar mt-4">
+      <div className="site-navbar ">
         <div className="container py-1">
           <div className="row align-items-center">
             <div className="col-8 col-md-8 col-lg-4">
@@ -43,18 +43,29 @@ class Navbar extends Component {
                     <Link to="/">Home</Link>
                   </li>
                   <li>
-                    <Link to="/admin">Admin</Link>
+                    <Link to="/admin/dashboard">Admin</Link>
                   </li>
                   <li>
                     {user ? (
                       <React.Fragment>
-                        <p className="user-label">
-                          Welcome {user.first_name}{" "}
-                          <span className="logout" onClick={this.handleLogout}>
-                            {" "}
-                            Logout
-                          </span>{" "}
-                        </p>
+                        <Link to={`user/${user.uid}/profile`}>
+                          Welcome {user.first_name}
+                        </Link>
+
+                        <span className="logout" onClick={this.handleLogout}>
+                          Logout
+                        </span>
+                        <Link
+                          style={{
+                            padding: "2px 12px",
+                            color: "#fff",
+                            background: "#f23a2e"
+                          }}
+                          className="logout"
+                          to={`/user/${user.uid}/profile`}
+                        >
+                          Profile
+                        </Link>
                       </React.Fragment>
                     ) : (
                       <Link to="/auth/sign-in">Login</Link>

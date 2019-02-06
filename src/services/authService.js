@@ -13,14 +13,14 @@ export async function signUp(data) {
       data["uid"] = user.uid;
       data["rol_id"] = 2;
       return createUser(data, user.uid);
-    }else {
-        return {}
+    } else {
+      return {};
     }
   } catch (e) {
     toast.error(e.message);
   }
 }
-async function createUser(data ,id) {
+async function createUser(data, id) {
   delete data["password"];
   return await axios.put(config.api_url + `users/${id}.json`, data);
 }
@@ -47,8 +47,15 @@ export async function getUser(id) {
   return data;
 }
 
-export async function UpdateUser(id,user) {
-  const res = await axios.put(config.api_url + `users/${id}.json`,user);
+export async function UpdateUser(id, user) {
+  const res = await axios.put(config.api_url + `users/${id}.json`, user);
   const { data } = res;
   return data;
+}
+
+export function getCurrentUser() {
+  const user = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : null;
+  return user;
 }

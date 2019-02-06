@@ -3,7 +3,7 @@ import "./userDetails.css";
 import PersonalInfo from "./personal-info";
 import { Route, Switch, Redirect } from "react-router-dom";
 import AccountSettings from "./account-settings";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 class User extends Component {
   state = {
     user_id: ""
@@ -14,7 +14,7 @@ class User extends Component {
     });
   }
   render() {
-      const user = JSON.parse(localStorage.getItem('user'))
+    const user = JSON.parse(localStorage.getItem("user"));
     return (
       <div className="container-fluid profile-body">
         <div className="row profile">
@@ -29,7 +29,9 @@ class User extends Component {
               </div>
 
               <div className="profile-usertitle">
-                <div className="profile-usertitle-name">{user.first_name} {user.last_name}</div>
+                <div className="profile-usertitle-name">
+                  {user.first_name} {user.last_name}
+                </div>
                 {/* <div className="profile-usertitle-job">Developer</div> */}
               </div>
 
@@ -45,26 +47,24 @@ class User extends Component {
               <div className="profile-usermenu">
                 <ul className="nav">
                   <li className="active">
-                   <Link to={`/user/${this.state.user_id}/profile`}>
+                    <Link to={`/user/${this.state.user_id}/profile`}>
                       <i className="glyphicon glyphicon-home" />
                       Overview
-                   </Link>
+                    </Link>
                   </li>
                   <li>
-                   <Link to={`/user/${this.state.user_id}/account-settings`}>
+                    <Link to={`/user/${this.state.user_id}/account-settings`}>
                       <i className="glyphicon glyphicon-user" />
                       Account Settings
-                   </Link>
+                    </Link>
                   </li>
                   <li>
-                   <Link to="" target="_blank">
+                    <Link to="" target="_blank">
                       <i className="glyphicon glyphicon-ok" />
                       WishList
-                   </Link>
+                    </Link>
                   </li>
-                  <li>
-                  
-                  </li>
+                  <li />
                 </ul>
               </div>
             </div>

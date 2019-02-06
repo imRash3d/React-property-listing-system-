@@ -48,3 +48,12 @@ li.view-list {
   border-radius: 41px;
   cursor: pointer;
 }
+
+.site-navbar {
+  width: 100%;
+  border-bottom: none;
+  position: relative !important;
+  z-index: 99;
+  background: cadetblue;
+  margin-bottom: -19px;
+}
