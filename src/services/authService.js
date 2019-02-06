@@ -41,8 +41,14 @@ export async function SignIn(data) {
   }
 }
 
-async function getUser(id) {
+export async function getUser(id) {
   const res = await axios.get(config.api_url + `users/${id}.json`);
+  const { data } = res;
+  return data;
+}
+
+export async function UpdateUser(id,user) {
+  const res = await axios.put(config.api_url + `users/${id}.json`,user);
   const { data } = res;
   return data;
 }
