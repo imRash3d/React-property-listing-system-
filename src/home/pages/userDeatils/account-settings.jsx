@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "../../../modules/form";
 import { toast } from "react-toastify";
 import { UpdateUser, getUser } from "../../../services/authService";
+import FileUpload from "../../../modules/file-upload/file-upload";
 class AccountSettings extends Form {
   state = {
     data: {
@@ -33,13 +34,18 @@ class AccountSettings extends Form {
   }
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="form">
-        {this.renderInput("first_name", "First Name")}
-        {this.renderInput("last_name", "Last Name")}
-        {this.renderInput("email", "Email")}
-        {this.renderInput("phone", "Phone")}
-        {this.renderButton("Submit")}
-      </form>
+      <React.Fragment>
+        <div>
+          <FileUpload />
+        </div>
+        <form onSubmit={this.handleSubmit} className="form">
+          {this.renderInput("first_name", "First Name")}
+          {this.renderInput("last_name", "Last Name")}
+          {this.renderInput("email", "Email")}
+          {this.renderInput("phone", "Phone")}
+          {this.renderButton("Submit")}
+        </form>
+      </React.Fragment>
     );
   }
 }
