@@ -1,11 +1,12 @@
 import "./file-upload.css";
 import React, { Component } from "react";
-import firebase from "../../firebase";
+import axios from "axios";
 class FileUpload extends Component {
   state = {
     selectedFile: null,
     progress: null,
-    downloadURL:''
+    preview: "",
+    isClose: true
   };
 
   onDrop = e => {
@@ -14,51 +15,43 @@ class FileUpload extends Component {
 
   onSelectedFileChange = event => {
     console.log(event.target.files[0]);
-    this.setState({
-      selectedFile: event.target.files[0]
-    });
-  };
-  onUploadFile = () => {
-    var progress = 0;
-    var storageRef = firebase.storage().ref();
-    const { selectedFile } = this.state;
-    var metadata = {
-      contentType: selectedFile.type
+    // this.setState({
+    //   selectedFile: event.target.files[0]
+    // });
+    // console.log(document.getElementById('preview'))
+    var reader = new FileReader();
+    reader.onload = function() {
+      var output = document.getElementById("preview");
+      output.src = reader.result;
     };
+    reader.readAsDataURL(event.target.files[0]);
+    document.getElementById("close-icon").style.display = "block";
+  };
+  onUploadFile = async () => {
+    var progress = 0;
+    const { selectedFile } = this.state;
     const formData = new FormData();
-    formData.append("image", selectedFile, selectedFile.name);
-    var uploadTask = storageRef
-      .child("images/" + selectedFile.name)
-      .put(selectedFile, metadata);
-    uploadTask.on(
-      "state_changed",
-      function(snapshot) {
-        progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log("Upload is " + progress + "% done");
-        switch (snapshot.state) {
-          case firebase.storage.TaskState.PAUSED: 
-            console.log("Upload is paused");
-            break;
-          case firebase.storage.TaskState.RUNNING:
-            console.log("Upload is running");
-            break;
-        }
-      },
-      function(error) {
-        // Handle unsuccessful uploads
-      },
-      function() {
-        uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-          console.log("File available at", downloadURL);
-        
-        });
-        
-      }
+    formData.append("file", selectedFile);
+    formData.append("upload_preset", "mf32tepp");
+    formData.append("api_key", "311689546381299");
+    const res = await axios.post(
+      "https://api.cloudinary.com/v1_1/de99mryom/image/upload",
+      formData
     );
-    console.log(process);
+    const { data } = await res;
+    if (data) {
+      this.setState({
+        downloadURL: data.url
+      });
+    }
   };
 
+  removePreview = () => {
+    document.getElementById("preview").src = "";
+    document.getElementById("close-icon").style.display = "none";
+  };
   render() {
+    const { downloadURL } = this.state;
     return (
       <div className="file-upload">
         <div className="upload-img-container">
@@ -68,7 +61,7 @@ class FileUpload extends Component {
             src="http://ajaxuploader.com/images/drag-drop-file.gif"
             alt=""
           />
-          <img style={{ width: "300px" }} src="" alt="" />
+
           <input
             ref={fileInput => (this.fileInput = fileInput)}
             style={{ display: "none" }}
@@ -81,6 +74,25 @@ class FileUpload extends Component {
               style={{ width: `${this.state.progress}` }}
             />
           </div>
+        </div>
+        <div className="preview-img-container">
+          <img
+            style={{
+              width: "210px",
+              height: "165px",
+              marginLleft: "50px"
+            }}
+            src={downloadURL}
+            alt=""
+            id="preview"
+          />
+          <span
+            onClick={this.removePreview}
+            style={{ display: "none" }}
+            id="close-icon"
+          >
+            <i className="fa fa-times" />
+          </span>
         </div>
         <button className="uploadBtn" onClick={this.onUploadFile}>
           Upload
